@@ -19,6 +19,13 @@ app.use((req, res, next) => {
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
 
+app.use("/api/hi",(res,req)=>{
+  return res.status(200).json({
+    message:"new route"
+  })
+
+})
+
 //database connection
 mongoose
   .connect(process.env.MONGO_URI)
