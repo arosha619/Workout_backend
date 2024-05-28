@@ -15,16 +15,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// New route for CI/CD pipeline check
+app.get("/api/status", (req, res) => {
+  res.json({ status: "CI/CD pipeline is working correctly!" });
+});
 //routes
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
-
-app.use("/api/hi",(res,req)=>{
-  return res.status(200).json({
-    message:"new route"
-  })
-
-})
 
 //database connection
 mongoose
